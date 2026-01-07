@@ -18,6 +18,10 @@ void insert(char * symbol) {
     while (SymTab[index].occupied == 1) {
         index += 1;
         index = index % TABSZ;
+        if (originalIndex == index) {
+            printf("SysTab is out of space...\n");
+            return;
+        }
     }
     strcpy(SymTab[index].name, symbol);
     SymTab[index].occupied = 1;
